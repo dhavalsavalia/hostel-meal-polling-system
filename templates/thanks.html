@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <h1>Thank you for voting</h1>
- <a href="/">See current stats</a>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<div class="text-center">
+ <h1 class="display-1">Thank you for voting</h1>
+ <p class="lead"></p><a href="/">See current stats</a>
+</div>
 {% endblock %}

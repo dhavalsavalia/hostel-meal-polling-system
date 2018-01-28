@@ -1,28 +1,126 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 
+  <style>
+	body {
+		font-family: 'Varela Round';
+	}
+  	label > input{ /* HIDE RADIO */
+	  visibility: hidden; /* Makes input not-clickable */
+	  position: absolute; /* Remove input from document flow */
+	}
+	label > input + img{ /* IMAGE STYLES */
+	  cursor:pointer;
+	  border:2px solid transparent;
+	}
+	label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+	  border:2px solid #f00;
+	}
+  </style>
 
-<a href="/logout">Logout</a>
+<div class="container">
+	<div>
+		<h1 class="display-2 text-center">Cast your vote here!</h1><hr>
+		<br><br>
+			<form method="POST">{% csrf_token %}
+				<div class="form-group">
+					<div class="row text-center">
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="vada_paw">
+							    <img src="{% static 'img/img1.jpg' %}" style="height: 200px;"><p class="lead">Vada Paw</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="paw_bhaji">
+							    <img src="{% static 'img/img2.jpg' %}" style="height: 200px;"><p class="lead">Paw Bhaji</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="ghughra">
+							    <img src="{% static 'img/img3.jpg' %}" style="height: 200px"><p class="lead">Ghughra</p>
+							</label>
+						</div>
+					</div>
 
-<form method="POST">{% csrf_token %}
+					<div class="row text-center">
+					
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="pani_puri">
+							    <img src="{% static 'img/img4.jpg' %}" style="height: 200px;"><p class="lead">Pani Puri</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="dal_pakwan">
+							    <img src="{% static 'img/img5.jpg' %}" style="height: 200px;"><p class="lead">Dal Pakwan</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="fruit_salad">
+							    <img src="{% static 'img/img6.jpg' %}" style="height: 200px"><p class="lead">Fruit Salad</p>
+							</label>
+						</div>
+					</div>
 
-	<input type="radio" name="sunday" value="vada_paw"> Vada Paw <br>
-	<input type="radio" name="sunday" value="paw_bhaji"> Paw Bhaji <br>
-	<input type="radio" name="sunday" value="ghughra"> Ghughra <br>
-	<input type="radio" name="sunday" value="pani_puri"> Pani Puri <br>
-	<input type="radio" name="sunday" value="dal_pakwan"> Dal Pakwan <br>
-	<input type="radio" name="sunday" value="fruit_salad"> Fruit Salad <br>
-	<input type="radio" name="sunday" value="sandwhich"> Sandwhich <br>
-	<input type="radio" name="sunday" value="bhajiya"> Bhajiya <br>
-	<input type="radio" name="sunday" value="punjabi"> Punjabi <br>
-	<input type="radio" name="sunday" value="pizza"> Pizza <br>
-	<input type="radio" name="sunday" value="dabeli"> Dabeli <br>
-	<input type="radio" name="sunday" value="manchurian"> Manchurian <br>
-	<input type="submit" value="Submit">
+					<div class="row text-center">
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="pizza">
+							    <img src="{% static 'img/img7.jpg' %}" style="height: 200px;"><p class="lead">Pizza</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="sandwhich">
+							    <img src="{% static 'img/img8.jpg' %}" style="height: 200px;"><p class="lead">Sandwhich</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="bhajiya">
+							    <img src="{% static 'img/img9.jpg' %}" style="height: 200px"><p class="lead">Bhajiya</p>
+							</label>
+						</div>
+					</div>
 
-
-</form>
+					<div class="row text-center">
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="punjabi">
+							    <img src="{% static 'img/img10.jpg' %}" style="height: 200px;"><p class="lead">Punjabi</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="dabeli">
+							    <img src="{% static 'img/img11.jpg' %}" style="height: 200px;"><p class="lead">Dabeli</p>
+							</label>
+						</div>
+						<div class="col-sm-4">
+							<label>
+							    <input type="radio" class="form-control" name="sunday" value="manchurian">
+							    <img src="{% static 'img/img12.jpg' %}" style="height: 200px"><p class="lead">Manchurian</p>
+							</label>
+						</div>
+					</div>
+					<br><hr><br>
+					<div class="row text-center">
+						<div class="col-sm-4"></div>
+						<div class="col-sm-4"><input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit"></div>
+						<div class="col-sm-4"></div>
+					
+					</div>
+				</div>
+			</form>
+	</div>
+</div>
 
 
 {% endblock %}
