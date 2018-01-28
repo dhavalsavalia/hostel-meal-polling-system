@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        
+<form method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+
+            <div class="control-group">
+              <ul class="form-group floating-label-form-group">
+                  <p>
+                      <label for="id_username">Username:</label>
+                      <input type="text" class="form-control" placeholder="Username" name="username" autofocus="" maxlength="254" required="" id="id_username">
+                  </p>
+
+              </ul>
+            </div>
+            <div class="control-group">
+              <ul class="form-group floating-label-form-group">
+                <p>
+                      <label for="id_password">Password:</label>
+                      <input type="password" class="form-control" placeholder="Password" name="password" required="" id="id_password">
+                  </p>
+              </ul>
+            </div>
+
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+                <input type="submit" class='btn btn-primary' value="Login" style="margin-left: 45px;"/>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+          </form>
+{% endblock %}

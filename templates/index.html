@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<a href="/logout">Logout</a>
+
+<form method="POST">{% csrf_token %}
+
+	<input type="radio" name="sunday" value="vada_paw"> Vada Paw <br>
+	<input type="radio" name="sunday" value="paw_bhaji"> Paw Bhaji <br>
+	<input type="radio" name="sunday" value="ghughra"> Ghughra <br>
+	<input type="radio" name="sunday" value="pani_puri"> Pani Puri <br>
+	<input type="radio" name="sunday" value="dal_pakwan"> Dal Pakwan <br>
+	<input type="radio" name="sunday" value="fruit_salad"> Fruit Salad <br>
+	<input type="radio" name="sunday" value="sandwhich"> Sandwhich <br>
+	<input type="radio" name="sunday" value="bhajiya"> Bhajiya <br>
+	<input type="radio" name="sunday" value="punjabi"> Punjabi <br>
+	<input type="radio" name="sunday" value="pizza"> Pizza <br>
+	<input type="radio" name="sunday" value="dabeli"> Dabeli <br>
+	<input type="radio" name="sunday" value="manchurian"> Manchurian <br>
+	<input type="submit" value="Submit">
+
+
+</form>
+
+
+{% endblock %}
+
