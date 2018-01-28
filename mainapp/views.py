@@ -29,6 +29,9 @@ def index(request):
 					choice   = q['choices']
 					vote_v   = q['vote']
 
+					print(vote_v)
+
+
 					if food:
 						if food == choice:
 							vote_v += 1
@@ -40,9 +43,18 @@ def index(request):
 				return render(request, 'thanks.html', {})
 
 		if user_p == request.user.id and has_voted_p == True:
+			context = dict()
+			vote_f = 0
+			for t in new_choices:
+				vote_t   = t['vote']
+				vote_f += vote_t
 			order_items = Choice.objects.order_by('-vote')
+			context['order_items'] = order_items
+			context['vote_f'] = vote_f
 
-			return render(request, 'already_done.html', {'order_items': order_items})
+
+
+			return render(request, 'already_done.html', context)
 
 
 
