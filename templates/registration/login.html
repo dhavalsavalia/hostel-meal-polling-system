@@ -1,33 +1,29 @@
 {% extends 'base.html' %}
 
-{% block content %}
-        
-<form method="POST" action="{% url 'login' %}">
-              {% csrf_token %}
+{% block content %} 
+<form method="POST" action="{% url 'login' %}">{% csrf_token %}
 
-            <div class="control-group">
-              <ul class="form-group floating-label-form-group">
-                  <p>
-                      <label for="id_username">Username:</label>
-                      <input type="text" class="form-control" placeholder="Username" name="username" autofocus="" maxlength="254" required="" id="id_username">
-                  </p>
-
-              </ul>
-            </div>
-            <div class="control-group">
-              <ul class="form-group floating-label-form-group">
-                <p>
-                      <label for="id_password">Password:</label>
-                      <input type="password" class="form-control" placeholder="Password" name="password" required="" id="id_password">
-                  </p>
-              </ul>
-            </div>
-
-            <br>
-            <div id="success"></div>
+  <div class="text-center" style="padding:50px 0">
+    <div class="logo">login</div>
+    <div class="login-form-1">
+      <form id="login-form" class="text-left">
+        <div class="login-form-main-message"></div>
+        <div class="main-login-form">
+          <div class="login-group">
             <div class="form-group">
-                <input type="submit" class='btn btn-primary' value="Login" style="margin-left: 45px;"/>
-                <input type="hidden" name="next" value="{{ next }}" />
+              <label for="lg_username" class="sr-only">Username</label>
+              <input type="text" class="form-control" placeholder="Username" name="username" autofocus="" maxlength="254" required="" id="id_username">
             </div>
-          </form>
+            <div class="form-group">
+              <label for="lg_password" class="sr-only">Password</label>
+              <input type="password" class="form-control" placeholder="Password" name="password" required="" id="id_password">
+            </div>
+          </div>
+          <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</form>
 {% endblock %}
